@@ -1,7 +1,7 @@
 # TMS Coding Webapp #
 
 
-Top open the app: https://inneb.github.io/tms-coding-webapp/
+Top open the app: https://inneb.github.io/tms-coding-webapp/index.html
 
 This is a wepapp to code teaminteractions using the topic markup scheme.
 
