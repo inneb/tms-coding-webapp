@@ -1,12 +1,15 @@
 # TMS Coding Webapp #
 
+
+Top open the app: https://inneb.github.io/tms-coding-webapp/
+
 This is a wepapp to code teaminteractions using the topic markup scheme.
 
 This implemented concept is described by [Menning et. al (2015)](https://www.researchgate.net/publication/283714467_Designing_as_Weaving_Topics_Coding_Topic_Threads_in_Design_Conversations).
 
 ## Install ##
 
-copy and past the tms on any webserver
+copy and past this folder to any webserver
 
 ## Todos ##
 
