@@ -1,0 +1,75 @@
+/*HEADER*/
+body{
+    overflow:hidden;
+}
+
+#header{
+    position:absolute;
+    top:0px;
+    height:100px;
+    width:100%;
+    padding:0;
+    padding:1px;
+}
+#info{
+    position:absolute;
+    top:0px;
+    height:60px;    
+    left:1px;
+    right:1px;
+}
+
+#headline{
+    float:left;
+    height:58px;    
+    width:55%;
+    margin: 1px;
+    padding: 0px 0px 5px 20px;
+}
+#turns, #timer{
+    float:right;
+    height:58px; 
+    width:20%;   
+    margin: 1px;
+}
+
+#navi{
+    position:absolute;
+    top:60px;
+    height:40px;    
+    width:100%;
+    margin:1px;
+}
+#navi > button{
+    width:25%;
+    height:38px;
+}
+
+/*DISPLAY*/
+#display{
+    position:absolute;
+    top:100px;
+    width:100%;
+    bottom:50px;
+    background-color: white;
+    padding:10px;
+}
+
+#canvas{
+    width: 100%;
+    height:100%;
+    background-color: white;
+}
+
+/*FOOTER*/
+#footer{
+    position:absolute;
+    bottom:0px;
+    height:50px;
+    width:100%;
+    padding:1px;
+}
+#footer > button{
+    width:11.15%;
+    height:47px;
+}
