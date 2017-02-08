@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--
+
+
+//SCREEN
+// ++===================================================================++ ---
+// ++===================================================================++  |H
+// ||                                    STEP: 14  |     _     _  TIMER ||  |E
+// ||                                              |   | _| . |_  _|    ||  |A
+// ||                                              |   ||_  .  _||_|    ||  |D
+// ||===================================================================||  |E
+// || < |                          UP | DOWN                        | > ||  |R
+// ++===================================================================++  |
+// ++===================================================================++ --- ---
+// ||   ||       TOPIC A         ||          TOPIC B      ||-------||   ||  |D  |TOPIC
+// ||=====================================================||-------||   ||  |I  |VIEW
+// ||   || 0/-1| 0/0 | 0/+1| 0/+2|| 0/-2| 0/-1| 0/0 | 0/+1||-------||   ||  |S  |
+// ||=====================================================||-------||   ||  |P ---
+// ||   ||     |     |     |     ||  x  |     |     |     ||-------||   ||  |L  |OFFSCREEN
+// ||=====================================================||-------||---||  |A ---
+// || 11||     |  x  |     |     ||     |     |     |     ||-------||11 ||  |Y  |TEMPLATE
+// ||   ||     |    x|     |     ||     |     |     |     ||-------||   ||  |   |
+// ||---++-----+-----+-----+-----++-----+-----+-----+-----||-------||---||  |   |
+// || 12||     |     |  x  |     ||     |     |     |     ||-------||12 ||  |   |
+// ||   ||     |     |  x  |     ||     |     |     |     ||-------||   ||  |   |
+// ||---++-----+-----+-----+-----++-----+-----+-----+-----||-------||---||  |   |
+// || 13||     |     |  x  |     ||     |     |     |     ||-------||13 ||  |   |
+// ||   ||     |     |     |     ||     |     |     |     ||-------||   ||  |   |
+// ++===================================================================++  |  ---
+// || 14||     |     |     |     ||     |     |     |     ||-------||14 ||  |   |CURRENT
+// ||   ||     |     |     |     ||     |     |     |     ||-------||   ||  |   |TURN
+// ++===================================================================++ --- ---
+// ++===================================================================++  |FOOTER
+// || SAVE ||                                || STOP/  || OVER ||  _|_  ||  |
+// ||      ||                                || PLAY   || VIEW ||   |   ||  |
+// ++===================================================================++  |
+// ++===================================================================++ ---
+
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+    <title>TMS</title>
+
+    <!-- Bootstrap -->
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- default style -->
+    <link href="css/default.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body id="screen">
+    <div id="header">
+        <div id="info" >
+            <div id="headline"  ><h4><strong>TMS</strong></h4></div>
+            <div id="turns"  class="thumbnail">TURN <span id="turn">1</span></div>
+            <div id="timer"  class="thumbnail">TIME <span id="time"></span></div>
+        </div>
+        <div id="navi" class="btn-group" aria-label="Center Align">
+            <button id="btnLeft"  class="btn btn-default" aria-label="Left Align" type="button" title="Screen left.">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </button>
+            <button id="btnUp" class="btn btn-default" aria-label="Center Align" type="button" title="Screen up (stops timer).">
+                <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+            </button>
+            <button id="btnDown" class="btn btn-default" aria-label="Center Align" type="button" title="Screen down (stops timer).">
+                <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+            </button>
+            <button id="btnRight" class="btn btn-default" aria-label="Right Align" type="button" title="Screen right.">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+    <div id="display">
+        <div id ="border">
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+    <div id="footer" class="btn-group">
+             <button id="btnSave" class="btn btn-default" aria-label="Left Align" type="button" title="Create result image.">
+                <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+            </button>
+            <button id="btnSimulate" class="btn btn-default" aria-label="Center Align" type="button" title="START/STOP simulation with speedup x10.">
+                <span id="btnSimulateIcon" class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+                <!-- glyphicon glyphicon-ban-circle-->
+            </button>
+            <button id="btnZoomOut" class="btn btn-default" aria-label="Center Align" type="button" title="Zoom out.">
+                <span class="glyphicon glyphicon-zoom-out" aria-hidden="true"></span>
+            </button>
+            <button id="btnZoomIn" class="btn btn-default" aria-label="Center Align" type="button" title="Zoom in.">
+                <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+            </button>
+            <button id="btnUndo" class="btn btn-default" aria-label="Center Align" type="button" title="Undo last step.">
+                <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
+            </button>
+            <button id="btnBackward" class="btn btn-default" aria-label="Center Align" type="button" title="-1 sec">
+                <span class="glyphicon glyphicon glyphicon-backward" aria-hidden="true"></span>
+            </button>
+            <button id="btnStopPlay" class="btn btn-default" aria-label="Center Align" type="button" title="START/STOP timer.">
+                <span id="btnStopPlayIcon" class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                <!--glyphicon glyphicon-pause-->
+            </button>
+            <button id="btnForward" class="btn btn-default" aria-label="Center Align" type="button" title="+1 sec">
+                <span  class="glyphicon glyphicon glyphicon-forward" aria-hidden="true"></span>
+            </button>
+            <button id="btnAddTopic" class="btn btn-default" aria-label="Right Align" type="button" title="Add new topic.">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="libs/jqeury/jquery-2.1.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/default.js"></script>
+  </body>
+</html>
