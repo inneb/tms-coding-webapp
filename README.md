@@ -17,8 +17,8 @@ copy and past this folder to any webserver
 
 ## Used libraries ##
 
- * [jQuery](https://jquery.com/) - [License](jquery.org/license )
- * [Bootstrap](http://getbootstrap.com/) - [Licensed under MIT](https://github.com/twbs/bootstrap/blob/master/LICENSE)
+* [jQuery](https://jquery.com/) - [License](jquery.org/license )
+* [Bootstrap](http://getbootstrap.com/) - [Licensed under MIT](https://github.com/twbs/bootstrap/blob/master/LICENSE)
 
 ## References ##
 
